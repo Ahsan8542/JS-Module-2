@@ -1,0 +1,23 @@
+<html>
+    <body>
+        <p>Enter a math expression:</p>
+
+        <input type="text" id="expression" placeholder="Example: 5 + 3 * 2">
+
+        <button onclick="calculate()">Calculate</button>
+
+        <p id="answer"></p>
+
+        <script>
+            function calculate() {
+
+                var exp = document.getElementById("expression").value;
+
+                var result = eval(exp);
+
+                document.getElementById("answer").innerHTML = "Result: " + result;
+            }
+        </script>
+
+    </body>
+</html>
