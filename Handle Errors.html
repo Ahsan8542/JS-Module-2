@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Error Handling Demo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 350px;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Error Handling in JavaScript</h2>
+
+        <input type="text" id="numberInput" placeholder="Enter a number">
+        <br>
+
+        <button onclick="checkNumber()">Check Number</button>
+
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function checkNumber() {
+            const input = document.getElementById("numberInput").value;
+            const message = document.getElementById("message");
+
+            try {
+                if (input === "") {
+                    throw "Input cannot be empty!";
+                }
+
+                if (isNaN(input)) {
+                    throw "Please enter a valid number!";
+                }
+
+                message.className = "success";
+                message.textContent = "Valid number entered: " + input;
+
+            } catch (error) {
+                message.className = "error";
+                message.textContent = "Error: " + error;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
